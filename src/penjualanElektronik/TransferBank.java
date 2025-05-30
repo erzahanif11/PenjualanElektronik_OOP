@@ -1,24 +1,27 @@
 package penjualanElektronik;
 
-public class TransferBank implements Pembayaran{
-	private String namaBank;
+public class TransferBank implements Pembayaran {
+    private String namaBank;
     private String nomorRekening;
     private boolean status;
 
-    public TransferBank(String namaBank, String nomorRekening) {
+    public TransferBank(String namaBank, String nomorRekening) throws FormatTidakValidException {
+        if (!nomorRekening.matches("\\d+")) {
+            throw new FormatTidakValidException("Nomor rekening hanya boleh berisi angka!");
+        }
         this.namaBank = namaBank;
         this.nomorRekening = nomorRekening;
     }
 
     @Override
     public String getJenisPembayaran() {
-        return "Transfer Bank dengan Nomor Rekening "+nomorRekening;
+        return "Transfer Bank dengan Nomor Rekening " + nomorRekening;
     }
 
     @Override
     public void prosesPembayaran(double harga) {
-    	System.out.println("=============================================================");
-    	System.out.println("Pembayaran dengan transfer bank melalui " + namaBank + " telah berhasil");
+        System.out.println("=============================================================");
+        System.out.println("Pembayaran dengan transfer bank melalui " + namaBank + " telah berhasil");
         status = true;
     }
 
