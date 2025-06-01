@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module PenjualanElektronik_OOP {
-}
