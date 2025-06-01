@@ -5,6 +5,7 @@
 package penjualanElektronik;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
+import java.text.DecimalFormat;
 /**
  *
  * @author RadityaaR
@@ -115,12 +116,13 @@ public class Content extends javax.swing.JPanel {
     public void tampilkanDaftarBarang(List<BarangElektronik> daftarProduk) {
     DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
     model.setRowCount(0); // clear table sebelum diisi ulang
+    DecimalFormat formatRupiah = new DecimalFormat("Rp#,###");
 
     for (BarangElektronik p : daftarProduk) {
         Object[] row = {
             p.getNamaBarang(),
             p.getMerk(),
-            p.getHarga(),
+            formatRupiah.format(p.getHarga()),
             p.getStok()
         };
         model.addRow(row);
