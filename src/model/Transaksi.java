@@ -47,14 +47,14 @@ public class Transaksi {
 
     public String cetakDetailTransaksi() {
         StringBuilder sb = new StringBuilder();
-        sb.append("=====================================================");
-        sb.append("ID Transaksi     : ").append(idTransaksi).append("");
+        sb.append("=====================================================").append("\n");
+        sb.append("ID Transaksi     : ").append(idTransaksi).append("").append("\n");
         sb.append(pembeli.getInfoPembeli()).append("");
-        sb.append("Barang Dibeli    : ").append(barang.getNamaBarang()).append("");
-        sb.append("Jumlah Barang    : ").append(jumlah).append("");
-        sb.append("Total Harga      : ").append(formatRupiah.format(totalHarga)).append("");
-        sb.append("Metode Pembayaran: ").append(metodePembayaran.getJenisPembayaran()).append("");
-        sb.append("Status Transaksi : ").append(statusTransaksi).append("");
+        sb.append("Barang Dibeli    : ").append(barang.getNamaBarang()).append("").append("\n");
+        sb.append("Jumlah Barang    : ").append(jumlah).append("").append("\n");
+        sb.append("Total Harga      : ").append(formatRupiah.format(totalHarga)).append("").append("\n");
+        sb.append("Metode Pembayaran: ").append(metodePembayaran.getJenisPembayaran()).append("").append("\n");
+        sb.append("Status Transaksi : ").append(statusTransaksi).append("").append("\n");
         sb.append("=====================================================");
         return sb.toString();
     }

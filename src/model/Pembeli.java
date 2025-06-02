@@ -15,7 +15,7 @@ public class Pembeli {
         StringBuilder sb = new StringBuilder();
         sb.append("Nama Pembeli     : ").append(namaPembeli).append("\n");
         sb.append("Alamat           : ").append(alamat).append("\n");
-        sb.append("Nomor Telepon    : ").append(nomorTelepon);
+        sb.append("Nomor Telepon    : ").append(nomorTelepon).append("\n");
         return sb.toString();
     }
 }

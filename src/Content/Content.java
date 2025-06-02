@@ -3,7 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Content;
-
+import java.text.DecimalFormat;
+import model.BarangElektronik;
+import java.util.*;
+import javax.swing.table.DefaultTableModel;
+import model.DataCollection;
+import model.Handphone;
+import model.Laptop;
+import model.TV;
 /**
  *
  * @author RadityaaR
@@ -15,8 +22,27 @@ public class Content extends javax.swing.JPanel {
      */
     public Content() {
         initComponents();
+        DataCollection.daftarBarang.add(new Laptop("Asus ROG", "Asus", 20000000, 5, "Intel i7", "NVIDIA RTX 3060", 16));
+        DataCollection.daftarBarang.add(new Handphone("iPhone 15", "Apple", 18000000, 10, 4500, 48, true));
+        DataCollection.daftarBarang.add(new TV("Samsung Smart TV", "Samsung", 15000000, 4, 55.0, "LED", "4K UHD"));
+        tampilkanDaftarBarang(DataCollection.daftarBarang);
     }
+    
+    public void tampilkanDaftarBarang(List<BarangElektronik> daftarProduk) {
+    DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
+    model.setRowCount(0); // clear table sebelum diisi ulang
+    DecimalFormat formatRupiah = new DecimalFormat("Rp #,###");
 
+    for (BarangElektronik p : daftarProduk) {
+        Object[] row = {
+            p.getNamaBarang(),
+            p.getMerk(),
+            formatRupiah.format(p.getHarga()),
+            p.getStok()
+        };
+        model.addRow(row);
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

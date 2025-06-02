@@ -1,0 +1,21 @@
+=====================================================
+ID Transaksi     : TRX1
+Nama Pembeli     : Masukkan Nama
+Alamat           : Masukkan Alamat
+Nomor Telepon    : 1
+Barang Dibeli    : ROG Zephyrus
+Jumlah Barang    : 1
+Total Harga      : Rp 25.000.000
+Metode Pembayaran: Kartu Kredit dengan Nomor Kartu 1
+Status Transaksi : Pembayaran berhasil
+==========================================================================================================
+ID Transaksi     : TRX2
+Nama Pembeli     : ERza
+Alamat           : Masukkan Alamat
+Nomor Telepon    : 1
+Barang Dibeli    : Asus ROG
+Jumlah Barang    : 1
+Total Harga      : Rp 20.000.000
+Metode Pembayaran: Transfer Bank dengan Nomor Rekening 1
+Status Transaksi : Pembayaran berhasil
+=====================================================
