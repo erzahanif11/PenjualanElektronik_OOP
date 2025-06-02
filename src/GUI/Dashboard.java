@@ -1,9 +1,9 @@
 package GUI;
 
-import penjualanElektronik.Content;
-import penjualanElektronik.FourthPanel;
-import penjualanElektronik.SecondPanel;
-import penjualanElektronik.ThirdPanel;
+import Content.Content;
+import Content.FourthPanel;
+import Content.SecondPanel;
+import Content.ThirdPanel;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 

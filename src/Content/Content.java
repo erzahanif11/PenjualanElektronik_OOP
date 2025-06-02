@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package penjualanElektronik;
-import javax.swing.table.DefaultTableModel;
-import java.util.*;
+package Content;
+
 /**
  *
  * @author RadityaaR
@@ -16,11 +15,6 @@ public class Content extends javax.swing.JPanel {
      */
     public Content() {
         initComponents();
-        DataCollection.daftarBarang.add(new Laptop("Asus ROG", "Asus", 20000000, 5, "Intel i7", "NVIDIA RTX 3060", 16));
-        DataCollection.daftarBarang.add(new Handphone("iPhone 15", "Apple", 18000000, 10, 4500, 48, true));
-        DataCollection.daftarBarang.add(new TV("Samsung Smart TV", "Samsung", 15000000, 4, 55.0, "LED", "4K UHD"));
-
-        tampilkanDaftarBarang(DataCollection.daftarBarang);
     }
 
     /**
@@ -111,20 +105,4 @@ public class Content extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
-
-    public void tampilkanDaftarBarang(List<BarangElektronik> daftarProduk) {
-    DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
-    model.setRowCount(0); // clear table sebelum diisi ulang
-
-    for (BarangElektronik p : daftarProduk) {
-        Object[] row = {
-            p.getNamaBarang(),
-            p.getMerk(),
-            p.getHarga(),
-            p.getStok()
-        };
-        model.addRow(row);
-    }
-}
-
 }
