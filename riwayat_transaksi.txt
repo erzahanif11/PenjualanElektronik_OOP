@@ -38,4 +38,44 @@ Jumlah Barang    : 10
 Total Harga      : Rp 180,000,000
 Metode Pembayaran: Kartu Kredit dengan Nomor Kartu 1234
 Status Transaksi : Pembayaran berhasil
+==========================================================================================================
+ID Transaksi     : TRX5
+Nama Pembeli     : a
+Alamat           : a
+Nomor Telepon    : 0999
+Barang Dibeli    : ROG Zephyrus
+Jumlah Barang    : 2
+Total Harga      : Rp 50,000,000
+Metode Pembayaran: Transfer Bank dengan Nomor Rekening 2
+Status Transaksi : Pembayaran berhasil
+==========================================================================================================
+ID Transaksi     : TRX6
+Nama Pembeli     : a
+Alamat           : a
+Nomor Telepon    : 0999
+Barang Dibeli    : ROG Zephyrus
+Jumlah Barang    : 3
+Total Harga      : Rp 75,000,000
+Metode Pembayaran: Transfer Bank dengan Nomor Rekening 2
+Status Transaksi : Pembayaran berhasil
+==========================================================================================================
+ID Transaksi     : TRX7
+Nama Pembeli     : Bejo
+Alamat           : Malang
+Nomor Telepon    : 0987777
+Barang Dibeli    : Pixel 9
+Jumlah Barang    : 3
+Total Harga      : Rp 39,000,000
+Metode Pembayaran: Transfer Bank dengan Nomor Rekening 766892
+Status Transaksi : Pembayaran berhasil
+==========================================================================================================
+ID Transaksi     : TRX8
+Nama Pembeli     : Tahu
+Alamat           : Sukun
+Nomor Telepon    : 089
+Barang Dibeli    : Smart OLED
+Jumlah Barang    : 2
+Total Harga      : Rp 24,000,000
+Metode Pembayaran: Transfer Bank dengan Nomor Rekening 5464748
+Status Transaksi : Pembayaran berhasil
 =====================================================

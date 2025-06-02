@@ -63,6 +63,7 @@ public class SecondPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         textHasil = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Poppins ExtraBold", 1, 14)); // NOI18N
@@ -76,7 +77,7 @@ public class SecondPanel extends javax.swing.JPanel {
 
         formPembeli.setBackground(new java.awt.Color(255, 255, 255));
 
-        formPembelitxt.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        formPembelitxt.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         formPembelitxt.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         formPembelitxt.setText("Form Pembeli");
 
@@ -110,7 +111,6 @@ public class SecondPanel extends javax.swing.JPanel {
             .addGroup(formPembeliLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(formPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(formPembelitxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(formPembeliLayout.createSequentialGroup()
                         .addComponent(namatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -122,7 +122,8 @@ public class SecondPanel extends javax.swing.JPanel {
                     .addGroup(formPembeliLayout.createSequentialGroup()
                         .addComponent(nomorhptxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tfNoHp)))
+                        .addComponent(tfNoHp))
+                    .addComponent(formPembelitxt, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         formPembeliLayout.setVerticalGroup(
@@ -145,7 +146,7 @@ public class SecondPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(formPembeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 130));
+        add(formPembeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 400, 130));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 400, -1));
@@ -153,7 +154,7 @@ public class SecondPanel extends javax.swing.JPanel {
         formPembelitxt1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         formPembelitxt1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         formPembelitxt1.setText("Pilih Barang");
-        add(formPembelitxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 370, -1));
+        add(formPembelitxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 370, -1));
 
         buttonGroup1.add(radioKartuKredit);
         radioKartuKredit.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -163,7 +164,7 @@ public class SecondPanel extends javax.swing.JPanel {
                 radioKartuKreditActionPerformed(evt);
             }
         });
-        add(radioKartuKredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        add(radioKartuKredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         buttonGroup1.add(radioTransferBank);
         radioTransferBank.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
@@ -173,19 +174,19 @@ public class SecondPanel extends javax.swing.JPanel {
                 radioTransferBankActionPerformed(evt);
             }
         });
-        add(radioTransferBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        add(radioTransferBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
 
         jLabel1.setText("Nama Pemilik  :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 100, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 100, -1));
 
         jLabel2.setText("No. Kartu         : ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, -1));
 
         jLabel3.setText("Nama Bank :");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, -1, -1));
 
         jLabel4.setText("No. Rekening :");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
         tfNamaKartu.setText("Masukkan Nama");
         tfNamaKartu.addActionListener(new java.awt.event.ActionListener() {
@@ -193,13 +194,13 @@ public class SecondPanel extends javax.swing.JPanel {
                 tfNamaKartuActionPerformed(evt);
             }
         });
-        add(tfNamaKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 220, -1));
+        add(tfNamaKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 220, -1));
 
         tfNomorKartu.setText("Masukkan Nomor");
-        add(tfNomorKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 220, -1));
+        add(tfNomorKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, 220, -1));
 
         tfNamaBank.setText("Masukkan Nama Bank");
-        add(tfNamaBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 220, -1));
+        add(tfNamaBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 220, -1));
 
         tfNomorRekening.setText("Masukkan Nomor Rekening");
         tfNomorRekening.addActionListener(new java.awt.event.ActionListener() {
@@ -207,39 +208,45 @@ public class SecondPanel extends javax.swing.JPanel {
                 tfNomorRekeningActionPerformed(evt);
             }
         });
-        add(tfNomorRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 220, -1));
+        add(tfNomorRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 220, -1));
 
-        btnBeli.setText("Lanjutkan ke Detail Pembayaran");
+        btnBeli.setBackground(new java.awt.Color(255, 51, 51));
+        btnBeli.setFont(new java.awt.Font("Poppins Black", 1, 14)); // NOI18N
+        btnBeli.setForeground(new java.awt.Color(255, 255, 255));
+        btnBeli.setText("Checkout");
         btnBeli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBeliActionPerformed(evt);
             }
         });
-        add(btnBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
+        add(btnBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, 120, 70));
 
         comboBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBarangActionPerformed(evt);
             }
         });
-        add(comboBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 160, 30));
+        add(comboBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 160, 30));
 
         jLabel5.setText("Nama Barang");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         tfJumlah.setText("Kuantitas");
-        add(tfJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 160, 30));
+        add(tfJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 160, 30));
 
         jLabel6.setText("Jumlah Beli");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
 
         textHasil.setColumns(20);
-        textHasil.setFont(new java.awt.Font("Poppins", 0, 8)); // NOI18N
+        textHasil.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
         textHasil.setRows(5);
-        textHasil.setText("Detail Transaksi");
         jScrollPane2.setViewportView(textHasil);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 270, 250));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 640, 210));
+
+        jLabel7.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel7.setText("Detail Transaksi");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tfAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAlamatActionPerformed
@@ -361,6 +368,7 @@ public class SecondPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

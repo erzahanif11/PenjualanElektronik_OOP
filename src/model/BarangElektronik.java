@@ -17,6 +17,7 @@ public abstract class BarangElektronik {
     }
 
     public abstract void showInfo();
+    
 
     public boolean cekStok(int jumlah) {
         return stok >= jumlah;

@@ -169,7 +169,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(mainLayout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         mainLayout.setVerticalGroup(
             mainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
