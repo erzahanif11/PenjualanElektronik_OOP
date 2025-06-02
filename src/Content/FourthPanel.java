@@ -4,7 +4,9 @@
  */
 package Content;
 
+import java.awt.HeadlessException;
 import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,6 +35,7 @@ public class FourthPanel extends javax.swing.JPanel {
         btnTampilRiwayat = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         textRiwayat = new javax.swing.JTextArea();
+        btnHapusRiwayat = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -72,6 +75,13 @@ public class FourthPanel extends javax.swing.JPanel {
         textRiwayat.setRows(5);
         jScrollPane2.setViewportView(textRiwayat);
 
+        btnHapusRiwayat.setText("Hapus");
+        btnHapusRiwayat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusRiwayatActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,8 +93,10 @@ public class FourthPanel extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(btnTampilRiwayat)))
+                        .addGap(114, 114, 114)
+                        .addComponent(btnTampilRiwayat)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnHapusRiwayat)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,7 +106,9 @@ public class FourthPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnTampilRiwayat)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTampilRiwayat)
+                    .addComponent(btnHapusRiwayat))
                 .addGap(0, 17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -118,9 +132,23 @@ public class FourthPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnTampilRiwayatActionPerformed
 
+    private void btnHapusRiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusRiwayatActionPerformed
+        try {
+            try (java.io.FileWriter fw = new java.io.FileWriter("riwayat_transaksi.txt")) {
+                fw.write(""); // kosongkan isi file
+            } // kosongkan isi file
+    textRiwayat.setText(""); // kosongkan tampilan area teks
+    JOptionPane.showMessageDialog(this, "Riwayat transaksi berhasil dihapus.");
+} catch (HeadlessException | IOException e) {
+    JOptionPane.showMessageDialog(this, "Gagal menghapus riwayat: " + e.getMessage());
+}
+
+    }//GEN-LAST:event_btnHapusRiwayatActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel RiwayatTransaksi;
+    private javax.swing.JButton btnHapusRiwayat;
     private javax.swing.JButton btnTampilRiwayat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;

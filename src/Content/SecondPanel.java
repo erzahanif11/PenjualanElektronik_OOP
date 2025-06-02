@@ -217,7 +217,6 @@ public class SecondPanel extends javax.swing.JPanel {
         });
         add(btnBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
 
-        comboBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBarangActionPerformed(evt);
@@ -281,11 +280,17 @@ public class SecondPanel extends javax.swing.JPanel {
 
             // 3. Ambil barang yang dipilih dari combo box
             int indexBarang = comboBarang.getSelectedIndex();
+            
             if (indexBarang < 0) {
                 JOptionPane.showMessageDialog(this, "Pilih barang terlebih dahulu.");
                 return;
             }
+            
             model.BarangElektronik barang = model.DataCollection.daftarBarang.get(indexBarang);
+            if (jumlah > barang.getStok()) {
+            JOptionPane.showMessageDialog(this, "Stok barang tidak mencukupi.");
+            return;
+}
 
             // 4. Buat objek Pembeli
             model.Pembeli pembeli = new model.Pembeli(nama, alamat, noHp);

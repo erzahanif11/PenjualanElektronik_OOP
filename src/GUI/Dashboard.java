@@ -19,7 +19,11 @@ public class Dashboard extends javax.swing.JFrame {
         initComponents();
                 if (DataCollection.daftarBarang.isEmpty()) {
             DataCollection.daftarBarang.add(new Laptop("ROG Zephyrus", "Asus", 25000000, 10, "Intel i9", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Laptop("Macbook Pro", "Appel", 18000000, 20, "Mac OS98", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Laptop("Lenovo LOQ", "Lenovo", 14000000, 8, "Ryzen ", "RTX 3080", 32));
             DataCollection.daftarBarang.add(new Handphone("Galaxy S23", "Samsung", 15000000, 15, 5000, 108, true));
+            DataCollection.daftarBarang.add(new Handphone("Iphone 15 Pro Max", "Apple", 15000000, 10, 5000, 108, true));
+            DataCollection.daftarBarang.add(new Handphone("Pixel 9", "Google", 13000000, 5, 5000, 108, true));
             DataCollection.daftarBarang.add(new TV("Smart OLED", "LG", 12000000, 8, 55.0, "OLED", "4K"));
         }
         cardLayout = new CardLayout();

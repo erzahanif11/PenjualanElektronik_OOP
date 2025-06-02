@@ -22,9 +22,13 @@ public class Content extends javax.swing.JPanel {
      */
     public Content() {
         initComponents();
-        DataCollection.daftarBarang.add(new Laptop("Asus ROG", "Asus", 20000000, 5, "Intel i7", "NVIDIA RTX 3060", 16));
-        DataCollection.daftarBarang.add(new Handphone("iPhone 15", "Apple", 18000000, 10, 4500, 48, true));
-        DataCollection.daftarBarang.add(new TV("Samsung Smart TV", "Samsung", 15000000, 4, 55.0, "LED", "4K UHD"));
+        DataCollection.daftarBarang.add(new Laptop("ROG Zephyrus", "Asus", 25000000, 10, "Intel i9", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Laptop("Macbook Pro", "Appel", 18000000, 20, "Mac OS98", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Laptop("Lenovo LOQ", "Lenovo", 14000000, 8, "Ryzen ", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Handphone("Galaxy S23", "Samsung", 15000000, 15, 5000, 108, true));
+            DataCollection.daftarBarang.add(new Handphone("Iphone 15 Pro Max", "Apple", 15000000, 10, 5000, 108, true));
+            DataCollection.daftarBarang.add(new Handphone("Pixel 9", "Google", 13000000, 5, 5000, 108, true));
+            DataCollection.daftarBarang.add(new TV("Smart OLED", "LG", 12000000, 8, 55.0, "OLED", "4K"));
         tampilkanDaftarBarang(DataCollection.daftarBarang);
     }
     
@@ -55,7 +59,7 @@ public class Content extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnRefreshBarang = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -84,10 +88,10 @@ public class Content extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable3);
 
-        jButton1.setText("Kembali ke Menu Utama");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshBarang.setText("Refresh");
+        btnRefreshBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRefreshBarangActionPerformed(evt);
             }
         });
 
@@ -103,8 +107,8 @@ public class Content extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton1)))
+                        .addGap(204, 204, 204)
+                        .addComponent(btnRefreshBarang)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -114,19 +118,19 @@ public class Content extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnRefreshBarang)
+                .addContainerGap(7, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRefreshBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshBarangActionPerformed
+        tampilkanDaftarBarang(DataCollection.daftarBarang);
+    }//GEN-LAST:event_btnRefreshBarangActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRefreshBarang;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable3;
