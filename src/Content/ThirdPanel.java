@@ -67,7 +67,7 @@ public class ThirdPanel extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
+                        .addGap(114, 114, 114)
                         .addComponent(buttonKembaliDetailTransaksi)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );

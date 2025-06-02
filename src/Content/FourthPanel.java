@@ -4,6 +4,8 @@
  */
 package Content;
 
+import java.io.IOException;
+
 /**
  *
  * @author RadityaaR
@@ -28,9 +30,9 @@ public class FourthPanel extends javax.swing.JPanel {
 
         RiwayatTransaksi = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        buttonKembaliRiwayat = new javax.swing.JButton();
+        btnTampilRiwayat = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textRiwayat = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -45,29 +47,30 @@ public class FourthPanel extends javax.swing.JPanel {
         RiwayatTransaksiLayout.setHorizontalGroup(
             RiwayatTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RiwayatTransaksiLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(36, 36, 36)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RiwayatTransaksiLayout.setVerticalGroup(
             RiwayatTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RiwayatTransaksiLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(14, 14, 14))
+                .addContainerGap())
         );
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        buttonKembaliRiwayat.setText("Kembali ke Menu Utama");
-        buttonKembaliRiwayat.addActionListener(new java.awt.event.ActionListener() {
+        btnTampilRiwayat.setText("Refresh");
+        btnTampilRiwayat.setAlignmentY(0.0F);
+        btnTampilRiwayat.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnTampilRiwayat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonKembaliRiwayatActionPerformed(evt);
+                btnTampilRiwayatActionPerformed(evt);
             }
         });
+
+        textRiwayat.setColumns(20);
+        textRiwayat.setRows(5);
+        jScrollPane2.setViewportView(textRiwayat);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,36 +78,52 @@ public class FourthPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(RiwayatTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonKembaliRiwayat)
-                .addGap(113, 113, 113))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(btnTampilRiwayat)))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(RiwayatTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(buttonKembaliRiwayat)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnTampilRiwayat)
                 .addGap(0, 17, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonKembaliRiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonKembaliRiwayatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonKembaliRiwayatActionPerformed
+    private void btnTampilRiwayatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilRiwayatActionPerformed
+        try {
+            StringBuilder isi;
+            try (java.io.BufferedReader reader = new java.io.BufferedReader(
+                    new java.io.FileReader("riwayat_transaksi.txt")
+            )) {
+                isi = new StringBuilder();
+                String baris;
+                while ((baris = reader.readLine()) != null) {
+                    isi.append(baris).append("\n");
+                }       }
+
+    textRiwayat.setText(isi.toString());
+} catch (IOException e) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Gagal membaca file: " + e.getMessage());
+}
+
+    }//GEN-LAST:event_btnTampilRiwayatActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel RiwayatTransaksi;
-    private javax.swing.JButton buttonKembaliRiwayat;
+    private javax.swing.JButton btnTampilRiwayat;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea textRiwayat;
     // End of variables declaration//GEN-END:variables
 }

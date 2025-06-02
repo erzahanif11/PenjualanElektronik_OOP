@@ -4,6 +4,9 @@
  */
 package Content;
 
+import java.awt.HeadlessException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author RadityaaR
@@ -15,6 +18,10 @@ public class SecondPanel extends javax.swing.JPanel {
      */
     public SecondPanel() {
         initComponents();
+        for (model.BarangElektronik b : model.DataCollection.daftarBarang) {
+            comboBarang.addItem(b.getNamaBarang() + " - " + b.getMerk());
+        }
+
     }
 
     /**
@@ -27,29 +34,41 @@ public class SecondPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         formPembeli = new javax.swing.JPanel();
         formPembelitxt = new javax.swing.JLabel();
         namatxt = new javax.swing.JLabel();
         alamattxt = new javax.swing.JLabel();
         nomorhptxt = new javax.swing.JLabel();
-        namatxtfield = new javax.swing.JTextField();
-        alamattxtfield = new javax.swing.JTextField();
-        nomorhptxtfield = new javax.swing.JTextField();
+        tfNama = new javax.swing.JTextField();
+        tfAlamat = new javax.swing.JTextField();
+        tfNoHp = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         formPembelitxt1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        radioKartuKredit = new javax.swing.JRadioButton();
+        radioTransferBank = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        buttonPembayaran = new javax.swing.JButton();
+        tfNamaKartu = new javax.swing.JTextField();
+        tfNomorKartu = new javax.swing.JTextField();
+        tfNamaBank = new javax.swing.JTextField();
+        tfNomorRekening = new javax.swing.JTextField();
+        btnBeli = new javax.swing.JButton();
+        comboBarang = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        tfJumlah = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textHasil = new javax.swing.JTextArea();
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Poppins ExtraBold", 1, 14)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Detail Transaksi");
+        jScrollPane1.setViewportView(jTextArea1);
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1080, 720));
@@ -73,16 +92,16 @@ public class SecondPanel extends javax.swing.JPanel {
         nomorhptxt.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         nomorhptxt.setText("No. HP      : ");
 
-        namatxtfield.setText("Masukkan Nama");
+        tfNama.setText("Masukkan Nama");
 
-        alamattxtfield.setText("Masukkan Alamat");
-        alamattxtfield.addActionListener(new java.awt.event.ActionListener() {
+        tfAlamat.setText("Masukkan Alamat");
+        tfAlamat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alamattxtfieldActionPerformed(evt);
+                tfAlamatActionPerformed(evt);
             }
         });
 
-        nomorhptxtfield.setText("Masukkan Nomorr HP");
+        tfNoHp.setText("Masukkan Nomorr HP");
 
         javax.swing.GroupLayout formPembeliLayout = new javax.swing.GroupLayout(formPembeli);
         formPembeli.setLayout(formPembeliLayout);
@@ -95,15 +114,15 @@ public class SecondPanel extends javax.swing.JPanel {
                     .addGroup(formPembeliLayout.createSequentialGroup()
                         .addComponent(namatxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(namatxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfNama, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(formPembeliLayout.createSequentialGroup()
                         .addComponent(alamattxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(alamattxtfield))
+                        .addComponent(tfAlamat))
                     .addGroup(formPembeliLayout.createSequentialGroup()
                         .addComponent(nomorhptxt, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nomorhptxtfield)))
+                        .addComponent(tfNoHp)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         formPembeliLayout.setVerticalGroup(
@@ -114,19 +133,19 @@ public class SecondPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(namatxt)
-                    .addComponent(namatxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(alamattxt)
-                    .addComponent(alamattxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formPembeliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomorhptxt)
-                    .addComponent(nomorhptxtfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNoHp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(formPembeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 120));
+        add(formPembeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 130));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 400, -1));
@@ -136,40 +155,25 @@ public class SecondPanel extends javax.swing.JPanel {
         formPembelitxt1.setText("Pilih Barang");
         add(formPembelitxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 370, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nama Barang", "Jumlah Beli", "Checkout"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 350, 70));
-
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jRadioButton1.setText("Kartu Kredit");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(radioKartuKredit);
+        radioKartuKredit.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        radioKartuKredit.setText("Kartu Kredit");
+        radioKartuKredit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                radioKartuKreditActionPerformed(evt);
             }
         });
-        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        add(radioKartuKredit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
-        jRadioButton2.setText("Transfer Bank");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(radioTransferBank);
+        radioTransferBank.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        radioTransferBank.setText("Transfer Bank");
+        radioTransferBank.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                radioTransferBankActionPerformed(evt);
             }
         });
-        add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        add(radioTransferBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         jLabel1.setText("Nama Pemilik  :");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 100, -1));
@@ -183,67 +187,166 @@ public class SecondPanel extends javax.swing.JPanel {
         jLabel4.setText("No. Rekening :");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
-        jTextField1.setText("Masukkan Nama");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfNamaKartu.setText("Masukkan Nama");
+        tfNamaKartu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfNamaKartuActionPerformed(evt);
             }
         });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 220, -1));
+        add(tfNamaKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 220, -1));
 
-        jTextField2.setText("Masukkan Nomor");
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 220, -1));
+        tfNomorKartu.setText("Masukkan Nomor");
+        add(tfNomorKartu, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 220, -1));
 
-        jTextField3.setText("Masukkan Nama Bank");
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 220, -1));
+        tfNamaBank.setText("Masukkan Nama Bank");
+        add(tfNamaBank, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 220, -1));
 
-        jTextField4.setText("Masukkan Nomor Rekening");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        tfNomorRekening.setText("Masukkan Nomor Rekening");
+        tfNomorRekening.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                tfNomorRekeningActionPerformed(evt);
             }
         });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 220, -1));
+        add(tfNomorRekening, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 220, -1));
 
-        buttonPembayaran.setText("Lanjutkan ke Detail Pembayaran");
-        buttonPembayaran.addActionListener(new java.awt.event.ActionListener() {
+        btnBeli.setText("Lanjutkan ke Detail Pembayaran");
+        btnBeli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPembayaranActionPerformed(evt);
+                btnBeliActionPerformed(evt);
             }
         });
-        add(buttonPembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
+        add(btnBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
+
+        comboBarang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBarang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBarangActionPerformed(evt);
+            }
+        });
+        add(comboBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 160, 30));
+
+        jLabel5.setText("Nama Barang");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        tfJumlah.setText("Kuantitas");
+        add(tfJumlah, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 160, 30));
+
+        jLabel6.setText("Jumlah Beli");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
+
+        textHasil.setColumns(20);
+        textHasil.setFont(new java.awt.Font("Poppins", 0, 8)); // NOI18N
+        textHasil.setRows(5);
+        textHasil.setText("Detail Transaksi");
+        jScrollPane2.setViewportView(textHasil);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 270, 250));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void alamattxtfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alamattxtfieldActionPerformed
+    private void tfAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfAlamatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_alamattxtfieldActionPerformed
+    }//GEN-LAST:event_tfAlamatActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void radioKartuKreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioKartuKreditActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_radioKartuKreditActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void radioTransferBankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioTransferBankActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_radioTransferBankActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void tfNamaKartuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaKartuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_tfNamaKartuActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void tfNomorRekeningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomorRekeningActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_tfNomorRekeningActionPerformed
 
-    private void buttonPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPembayaranActionPerformed
+    private void btnBeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeliActionPerformed
+        try {
+            // 1. Ambil data pembeli
+            String nama = tfNama.getText();
+            String alamat = tfAlamat.getText();
+            String noHp = tfNoHp.getText();
+
+            // Validasi input dasar
+            if (nama.isEmpty() || alamat.isEmpty() || noHp.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Mohon isi semua data pembeli.");
+                return;
+            }
+
+            // 2. Ambil jumlah beli
+            int jumlah = Integer.parseInt(tfJumlah.getText());
+
+            // 3. Ambil barang yang dipilih dari combo box
+            int indexBarang = comboBarang.getSelectedIndex();
+            if (indexBarang < 0) {
+                JOptionPane.showMessageDialog(this, "Pilih barang terlebih dahulu.");
+                return;
+            }
+            model.BarangElektronik barang = model.DataCollection.daftarBarang.get(indexBarang);
+
+            // 4. Buat objek Pembeli
+            model.Pembeli pembeli = new model.Pembeli(nama, alamat, noHp);
+
+            // 5. Tentukan metode pembayaran dari radio button
+            model.Pembayaran pembayaran;
+            if (radioKartuKredit.isSelected()) {
+                String namaKartu = tfNamaKartu.getText();
+                String noKartu = tfNomorKartu.getText();
+                if (namaKartu.isEmpty() || noKartu.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Isi nama pemilik dan nomor kartu kredit.");
+                    return;
+                }
+                pembayaran = new model.KartuKredit(namaKartu, noKartu);
+            } else if (radioTransferBank.isSelected()) {
+                String namaBank = tfNamaBank.getText();
+                String noRek = tfNomorRekening.getText();
+                if (namaBank.isEmpty() || noRek.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "Isi nama bank dan nomor rekening.");
+                    return;
+                }
+                pembayaran = new model.TransferBank(namaBank, noRek);
+            } else {
+                JOptionPane.showMessageDialog(this, "Pilih metode pembayaran.");
+                return;
+            }
+
+            // 6. Buat transaksi
+            String idTransaksi = "TRX" + (model.FileOperation.hitungTransaksiDalamFile() + 1);
+            model.Transaksi trx = new model.Transaksi(idTransaksi, pembeli, barang, jumlah, pembayaran);
+
+            // 7. Proses transaksi
+            trx.prosesTransaksi();
+
+            // 8. Tampilkan hasil transaksi
+            String hasil = trx.cetakDetailTransaksi();
+            textHasil.setText(hasil);
+
+            // 9. Simpan ke file
+            model.FileOperation.writeToFile(hasil);
+
+            JOptionPane.showMessageDialog(this, "Transaksi berhasil diproses!");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Jumlah harus berupa angka.");
+        } catch (HeadlessException ex) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan: " + ex.getMessage());
+        }
+
+
+    }//GEN-LAST:event_btnBeliActionPerformed
+
+    private void comboBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBarangActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonPembayaranActionPerformed
+    }//GEN-LAST:event_comboBarangActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel alamattxt;
-    private javax.swing.JTextField alamattxtfield;
+    private javax.swing.JButton btnBeli;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton buttonPembayaran;
+    private javax.swing.JComboBox<String> comboBarang;
     private javax.swing.JPanel formPembeli;
     private javax.swing.JLabel formPembelitxt;
     private javax.swing.JLabel formPembelitxt1;
@@ -251,18 +354,24 @@ public class SecondPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel namatxt;
-    private javax.swing.JTextField namatxtfield;
     private javax.swing.JLabel nomorhptxt;
-    private javax.swing.JTextField nomorhptxtfield;
+    private javax.swing.JRadioButton radioKartuKredit;
+    private javax.swing.JRadioButton radioTransferBank;
+    private javax.swing.JTextArea textHasil;
+    private javax.swing.JTextField tfAlamat;
+    private javax.swing.JTextField tfJumlah;
+    private javax.swing.JTextField tfNama;
+    private javax.swing.JTextField tfNamaBank;
+    private javax.swing.JTextField tfNamaKartu;
+    private javax.swing.JTextField tfNoHp;
+    private javax.swing.JTextField tfNomorKartu;
+    private javax.swing.JTextField tfNomorRekening;
     // End of variables declaration//GEN-END:variables
 }

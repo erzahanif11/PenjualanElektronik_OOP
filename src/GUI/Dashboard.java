@@ -1,15 +1,14 @@
 package GUI;
 
-import Content.Content;
-import Content.FourthPanel;
-import Content.SecondPanel;
-import Content.ThirdPanel;
-import java.awt.BorderLayout;
+import Content.*;
+import model.*;
 import java.awt.CardLayout;
+import java.awt.BorderLayout;
+
 
 public class Dashboard extends javax.swing.JFrame {
-    private javax.swing.JPanel cardPanel;
-    private java.awt.CardLayout cardLayout;
+    private final javax.swing.JPanel cardPanel;
+    private final java.awt.CardLayout cardLayout;
 
     Content a = new Content();
     SecondPanel b = new SecondPanel();
@@ -18,6 +17,11 @@ public class Dashboard extends javax.swing.JFrame {
     
     public Dashboard() {
         initComponents();
+                if (DataCollection.daftarBarang.isEmpty()) {
+            DataCollection.daftarBarang.add(new Laptop("ROG Zephyrus", "Asus", 25000000, 10, "Intel i9", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Handphone("Galaxy S23", "Samsung", 15000000, 15, 5000, 108, true));
+            DataCollection.daftarBarang.add(new TV("Smart OLED", "LG", 12000000, 8, 55.0, "OLED", "4K"));
+        }
         cardLayout = new CardLayout();
         cardPanel = new javax.swing.JPanel(cardLayout);
 
@@ -58,6 +62,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         main.setBackground(new java.awt.Color(0, 102, 204));
@@ -234,10 +239,8 @@ public class Dashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Dashboard().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Dashboard().setVisible(true);
         });
     }
 
