@@ -23,12 +23,20 @@ public class Content extends javax.swing.JPanel {
     public Content() {
         initComponents();
         DataCollection.daftarBarang.add(new Laptop("ROG Zephyrus", "Asus", 25000000, 10, "Intel i9", "RTX 3080", 32));
-            DataCollection.daftarBarang.add(new Laptop("Macbook Pro", "Appel", 18000000, 20, "Mac OS98", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Laptop("Macbook Pro", "Apple", 18000000, 20, "Mac OS98", "RTX 3080", 32));
             DataCollection.daftarBarang.add(new Laptop("Lenovo LOQ", "Lenovo", 14000000, 8, "Ryzen ", "RTX 3080", 32));
+            DataCollection.daftarBarang.add(new Laptop("Acer Predator Helios", "Acer", 22000000, 7, "Intel i7", "RTX 3070", 16));
+            DataCollection.daftarBarang.add(new Laptop("MSI Stealth 15M", "MSI", 19500000, 5, "Intel i7", "RTX 3060", 16));
+            DataCollection.daftarBarang.add(new Laptop("HP Omen 16", "HP", 17500000, 6, "Ryzen 7", "RTX 3060", 16));
             DataCollection.daftarBarang.add(new Handphone("Galaxy S23", "Samsung", 15000000, 15, 5000, 108, true));
             DataCollection.daftarBarang.add(new Handphone("Iphone 15 Pro Max", "Apple", 15000000, 10, 5000, 108, true));
             DataCollection.daftarBarang.add(new Handphone("Pixel 9", "Google", 13000000, 5, 5000, 108, true));
+            DataCollection.daftarBarang.add(new Handphone("Xiaomi 14 Ultra", "Xiaomi", 12000000, 12, 5000, 200, true));
+            DataCollection.daftarBarang.add(new Handphone("OnePlus 12", "OnePlus", 11000000, 10, 4800, 150, true));
+            DataCollection.daftarBarang.add(new Handphone("Sony Xperia 1 V", "Sony", 14000000, 6, 4500, 120, true));
             DataCollection.daftarBarang.add(new TV("Smart OLED", "LG", 12000000, 8, 55.0, "OLED", "4K"));
+            DataCollection.daftarBarang.add(new TV("Bravia XR", "Sony", 16000000, 5, 65.0, "Mini LED", "4K"));
+            DataCollection.daftarBarang.add(new TV("Neo QLED", "Samsung", 20000000, 4, 75.0, "QLED", "8K"));
         tampilkanDaftarBarang(DataCollection.daftarBarang);
     }
     
